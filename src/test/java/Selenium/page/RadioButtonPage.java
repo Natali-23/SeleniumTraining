@@ -16,7 +16,7 @@ public class RadioButtonPage {
         webDriver.get("https://demoqa.com/radio-button");
         WebElement button = webDriver.findElement(radioButton);
         button.click();
-/// данные для обновленных файлов
+
         Assertions.assertTrue(button.isSelected());
     }
 }
