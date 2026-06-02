@@ -9,14 +9,17 @@ import org.openqa.selenium.WebElement;
 public class RadioButtonPage {
     protected WebDriver webDriver;
 
-    protected By radioButton = By.xpath("//input[@id='impressiveRadio']");
+    protected By radioButtonYes = By.xpath("//label[@for='yesRadio']");
+    protected By radioButtonImpressive = By.xpath("//label[@for='impressiveRadio']");
 
-    @Test
-    public void RadioButtonTest(){
-        webDriver.get("https://demoqa.com/radio-button");
-        WebElement button = webDriver.findElement(radioButton);
-        button.click();
-/// данные для обновленных файлов
-        Assertions.assertTrue(button.isSelected());
+    public RadioButtonPage(WebDriver webDriver) {
+        this.webDriver = webDriver;
     }
+public void radioButtonYesClick(){
+        webDriver.findElement(radioButtonYes).click();
+}
+
+public void RadioButtonImpressiveClick(){
+        webDriver.findElement(radioButtonImpressive).click();
+}
 }
