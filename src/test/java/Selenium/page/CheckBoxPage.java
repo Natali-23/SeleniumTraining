@@ -4,25 +4,42 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CheckBoxPage {
-    private final WebDriver webDriver;
 
-    private final By homeSwitcher = By.xpath("//div[@role='treeitem'][.//*[contains(@title, 'Home') or text()='Home']]/span[contains(@class, 'rc-tree-switcher')]");
-    private final By desktopSwitcher = By.xpath("//div[@role='treeitem'][.//*[contains(@title, 'Desktop') or text()='Desktop']]/span[contains(@class, 'rc-tree-switcher')]");
-    private final By checkNotes = By.xpath("//div[@role='treeitem'][.//*[contains(@title, 'Notes') or text()='Notes']]/span[contains(@class, 'rc-tree-checkbox')]");
+    private final WebDriver driver;
 
-    public CheckBoxPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+    public CheckBoxPage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public void checkHome() {
-        webDriver.findElement(homeSwitcher).click();
+    private By switcher(String title) {
+        return By.xpath(
+                "//span[text()='" + title + "']/ancestor::div[@role='treeitem']//span[contains(@class,'rc-tree-switcher')]"
+        );
     }
 
-    public void checkDesktop() {
-        webDriver.findElement(desktopSwitcher).click();
+    private By checkbox(String title) {
+        return By.xpath(
+                "//span[text()='" + title + "']/ancestor::div[@role='treeitem']//span[contains(@class,'rc-tree-checkbox')]"
+        );
     }
 
-    public void checkNotes() {
-        webDriver.findElement(checkNotes).click();
+    public void openHome() {
+        driver.findElement(switcher("Home")).click();
+    }
+
+    public void openDesktop() {
+        driver.findElement(switcher("Desktop")).click();
+    }
+
+    public void chooseNotes() {
+        driver.findElement(checkbox("Notes")).click();
+    }
+
+    public boolean isCheckedPage() {
+        String checked =
+                driver.findElement(checkbox("Notes"))
+                        .getAttribute("aria-checked");
+
+        return "true".equals(checked);
     }
 }
