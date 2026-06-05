@@ -13,13 +13,20 @@ public class CheckBoxPage {
 
     private By switcher(String title) {
         return By.xpath(
-                "//span[text()='" + title + "']/ancestor::div[@role='treeitem']//span[contains(@class,'rc-tree-switcher')]"
+                "//span[text()='" + title + "']/ancestor::div[@role='treeitem']" +
+                        "//span[contains(@class,'rc-tree-switcher')]"
         );
+    }
+
+    private By checkboxByTitle(String title) {
+        return By.xpath("//span[contains(@class, 'rct-title') and text()='" + title + "']" +
+                "/ancestor::label/span[contains(@class, 'rct-checkbox')]");
     }
 
     private By checkbox(String title) {
         return By.xpath(
-                "//span[text()='" + title + "']/ancestor::div[@role='treeitem']//span[contains(@class,'rc-tree-checkbox')]"
+                "//span[text()='" + title + "']/ancestor::div[@role='treeitem']" +
+                        "//span[contains(@class,'rc-tree-checkbox')]"
         );
     }
 

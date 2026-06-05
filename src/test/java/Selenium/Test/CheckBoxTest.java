@@ -19,7 +19,6 @@ public class CheckBoxTest extends BaseTest {
         page.openHome();
         page.openDesktop();
         page.chooseNotes();
-
         Assertions.assertTrue(page.isCheckedPage());
     }
 

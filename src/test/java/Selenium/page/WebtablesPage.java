@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebtablesPage {
-    protected WebDriver webDriver;
 
 
     protected By webtablesAddButtonWebtables = By.xpath("//button[@id = 'addNewRecordButton']");
@@ -20,53 +19,41 @@ public class WebtablesPage {
     protected By submitButtonWebtables = By.xpath("//button[@id = 'submit']");
     protected By deleteButtonWebtables = By.xpath("//span[@id='delete-record-1']");
 
-    @Test
-    public void webtablesTestAddPerson(){
-        webDriver.get("https://demoqa.com/webtables");
-        WebElement addButton = webDriver.findElement(webtablesAddButtonWebtables);
-        addButton.click();
-//проверка имени
-        WebElement firstNameWebtables = webDriver.findElement(firstNameLocatorWebtables);
-        firstNameWebtables.clear();
-        firstNameWebtables.sendKeys("Kate");
-
-        //проверка фамилии
-        WebElement lastNameWebtables = webDriver.findElement(LastNameLocatorWebtables);
-        lastNameWebtables.clear();
-        lastNameWebtables.sendKeys("Liaison");
-
-        // проверка имейла
-        WebElement emailWebtables = webDriver.findElement(emailLocatorWebtables);
-        emailWebtables.clear();
-        emailWebtables.sendKeys("qwerty12345@yandex.ru");
-
-        //проверка возраста
-        WebElement ageWebtables = webDriver.findElement(ageLocatorWebtables);
-        ageWebtables.clear();
-        ageWebtables.sendKeys("34");
-
-        //проверка зарплаты
-        WebElement salaryWebtables = webDriver.findElement(salaryLocatorWetables);
-        salaryWebtables.clear();
-        salaryWebtables.sendKeys("123345");
-
-        // проверка департамента
-        WebElement departWebtables = webDriver.findElement(departamentLocatorWebtables);
-        departWebtables.clear();
-        departWebtables.sendKeys("department");
-
-//button
-        WebElement buttonSubmitWebtables= webDriver.findElement(submitButtonWebtables);
-        buttonSubmitWebtables.click();
 
 
-
+    public By getWebtablesAddButtonWebtables() {
+        return webtablesAddButtonWebtables;
     }
 
-    @Test
-    public void webtablesTestDeletePerson(){
-        webDriver.get("https://demoqa.com/webtables");
-        WebElement deleteButonWebtables = webDriver.findElement(deleteButtonWebtables);
-        deleteButonWebtables.click();
+    public By getFirstNameLocatorWebtables() {
+        return firstNameLocatorWebtables;
+    }
+
+    public By getLastNameLocatorWebtables() {
+        return LastNameLocatorWebtables;
+    }
+
+    public By getEmailLocatorWebtables() {
+        return emailLocatorWebtables;
+    }
+
+    public By getAgeLocatorWebtables() {
+        return ageLocatorWebtables;
+    }
+
+    public By getSalaryLocatorWetables() {
+        return salaryLocatorWetables;
+    }
+
+    public By getDepartamentLocatorWebtables() {
+        return departamentLocatorWebtables;
+    }
+
+    public By getSubmitButtonWebtables() {
+        return submitButtonWebtables;
+    }
+
+    public By getDeleteButtonWebtables() {
+        return deleteButtonWebtables;
     }
 }
