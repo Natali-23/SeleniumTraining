@@ -19,7 +19,7 @@ public class WebtablesPage {
     protected By submitButtonWebtables = By.xpath("//button[@id = 'submit']");
     protected By deleteButtonWebtables = By.xpath("//span[@id='delete-record-1']");
 
-
+/// hi
 
     public By getWebtablesAddButtonWebtables() {
         return webtablesAddButtonWebtables;
