@@ -3,61 +3,36 @@ package Selenium.Test;
 import Selenium.BaseTest;
 import Selenium.page.WebtablesPage;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class WebtablesTest extends BaseTest {
-    WebDriver webDriver;
-WebtablesPage webtablesPage = new WebtablesPage();
 
     @Test
-    public void webtablesTestAddPerson(){
+    public void webtablesTestAddPerson() {
 
-        webDriver.get("https://demoqa.com/webtables");
-        WebElement addButton = webDriver.findElement(webtablesPage.getWebtablesAddButtonWebtables());
-        addButton.click();
-//проверка имени
-        WebElement firstNameWebtables = webDriver.findElement(firstNameLocatorWebtables);
-        firstNameWebtables.clear();
-        firstNameWebtables.sendKeys("Kate");
+        getWebDriver().get("https://demoqa.com/webtables");
 
-        //проверка фамилии
-        WebElement lastNameWebtables = webDriver.findElement(LastNameLocatorWebtables);
-        lastNameWebtables.clear();
-        lastNameWebtables.sendKeys("Liaison");
+        WebtablesPage webtablesPage =
+                new WebtablesPage(getWebDriver());
 
-        // проверка имейла
-        WebElement emailWebtables = webDriver.findElement(emailLocatorWebtables);
-        emailWebtables.clear();
-        emailWebtables.sendKeys("qwerty12345@yandex.ru");
-
-        //проверка возраста
-        WebElement ageWebtables = webDriver.findElement(ageLocatorWebtables);
-        ageWebtables.clear();
-        ageWebtables.sendKeys("34");
-
-        //проверка зарплаты
-        WebElement salaryWebtables = webDriver.findElement(salaryLocatorWetables);
-        salaryWebtables.clear();
-        salaryWebtables.sendKeys("123345");
-
-        // проверка департамента
-        WebElement departWebtables = webDriver.findElement(departamentLocatorWebtables);
-        departWebtables.clear();
-        departWebtables.sendKeys("department");
-
-//button
-        WebElement buttonSubmitWebtables= webDriver.findElement(submitButtonWebtables);
-        buttonSubmitWebtables.click();
-
+        webtablesPage.addButton();
+        webtablesPage.addFirstName("Kate");
+        webtablesPage.addLastName("Liaison");
+        webtablesPage.addEmail("qwerty12345@yandex.ru");
+        webtablesPage.addAge("34");
+        webtablesPage.addSalary("123345");
+        webtablesPage.addDepart("department");
+        webtablesPage.clickButton();
 
 
     }
 
     @Test
-    public void webtablesTestDeletePerson(){
-        webDriver.get("https://demoqa.com/webtables");
-        WebElement deleteButonWebtables = webDriver.findElement(deleteButtonWebtables);
-        deleteButonWebtables.click();
+    public void webtablesTestDeletePerson() {
+        getWebDriver().get("https://demoqa.com/webtables");
+
+        WebtablesPage webtablesPage =
+                new WebtablesPage(getWebDriver());
+
+        webtablesPage.deletePerson();
     }
 }
