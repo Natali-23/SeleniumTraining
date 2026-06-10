@@ -1,13 +1,15 @@
 package Selenium.page;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebtablesPage {
+    private final WebDriver webDriver;
 
+    public WebtablesPage(WebDriver webDriver) {
+        this.webDriver = webDriver;
+    }
 
     protected By webtablesAddButtonWebtables = By.xpath("//button[@id = 'addNewRecordButton']");
     protected By firstNameLocatorWebtables = By.xpath("//input[@id = 'firstName']");
@@ -19,7 +21,6 @@ public class WebtablesPage {
     protected By submitButtonWebtables = By.xpath("//button[@id = 'submit']");
     protected By deleteButtonWebtables = By.xpath("//span[@id='delete-record-1']");
 
-/// hi
 
     public By getWebtablesAddButtonWebtables() {
         return webtablesAddButtonWebtables;
@@ -55,5 +56,55 @@ public class WebtablesPage {
 
     public By getDeleteButtonWebtables() {
         return deleteButtonWebtables;
+    }
+
+    public void addButton() {
+        webDriver.findElement(getWebtablesAddButtonWebtables()).click();
+    }
+
+    public void addFirstName(String name) {
+        WebElement firstNameWebtables = webDriver.findElement(getFirstNameLocatorWebtables());
+        firstNameWebtables.clear();
+        firstNameWebtables.sendKeys(name);
+    }
+
+    public void addLastName(String lastName) {
+        WebElement lastNameWebtables = webDriver.findElement(getLastNameLocatorWebtables());
+        lastNameWebtables.clear();
+        lastNameWebtables.sendKeys(lastName);
+    }
+
+    public void addEmail(String email) {
+        WebElement emailWebtables = webDriver.findElement(getEmailLocatorWebtables());
+        emailWebtables.clear();
+        emailWebtables.sendKeys(email);
+    }
+
+    public void addAge(String age) {
+        WebElement ageWebtables = webDriver.findElement(getAgeLocatorWebtables());
+        ageWebtables.clear();
+        ageWebtables.sendKeys(age);
+    }
+
+    public void addSalary(String salary) {
+        WebElement salaryWebtables = webDriver.findElement(getSalaryLocatorWetables());
+        salaryWebtables.clear();
+        salaryWebtables.sendKeys(salary);
+    }
+
+    public void addDepart(String depart) {
+        WebElement departWebtables = webDriver.findElement(getDepartamentLocatorWebtables());
+        departWebtables.clear();
+        departWebtables.sendKeys(depart);
+    }
+
+    public void clickButton() {
+        WebElement buttonSubmitWebtables = webDriver.findElement(getSubmitButtonWebtables());
+        buttonSubmitWebtables.click();
+    }
+
+    public void deletePerson() {
+        WebElement deleteButonWebtables = webDriver.findElement(getDeleteButtonWebtables());
+        deleteButonWebtables.click();
     }
 }
