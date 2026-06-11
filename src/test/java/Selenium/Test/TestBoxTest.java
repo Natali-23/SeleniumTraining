@@ -23,20 +23,18 @@ public class TestBoxTest extends BaseTest {
         testBoxPage.permaentAddress("совпадает с нынешним адресом");
         testBoxPage.button();
 
-
-
         // Проверка Имени
         Assertions.assertTrue(testBoxPage.getResultName().contains("Катя"),
                 "Имя не совпадает! Ожидали Катя, а получили: " + testBoxPage.getResultName());
 
-// Проверка Email
+        // Проверка Email
         Assertions.assertTrue(testBoxPage.getResultEmail().contains("qwerty@yandex.ru"));
 
-// Проверка Current Address (самое проблемное место)
+        // Проверка Current Address (самое проблемное место)
         Assertions.assertTrue(testBoxPage.getResultCurrentAddress().contains("улица пупкина, дом залупкина"),
                 "Адрес не найден в строке: " + testBoxPage.getResultCurrentAddress());
 
-// Проверка Permanent Address (исправил опечатку в слове Permanent)
+        // Проверка Permanent Address (исправил опечатку в слове Permanent)
         Assertions.assertTrue(testBoxPage.getResultPermanentAddress().contains("совпадает с нынешним адресом"));
 
     }
