@@ -2,12 +2,14 @@ package Selenium.Test;
 
 import Selenium.BaseTest;
 import Selenium.page.CheckBoxPage;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CheckBoxTest extends BaseTest {
+@Description("проверяем чек бокс на выбор notes")
 
     @Test
     public void checkBoxTest() {

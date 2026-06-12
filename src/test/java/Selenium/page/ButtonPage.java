@@ -10,16 +10,29 @@ public class ButtonPage{
     private WebDriver driver;
 
     private final By doubleClick =By.xpath("//button[@id='doubleClickBtn']");
+private final By rightClick = By.id("rightClickBtn");
+    private final By dynamicClick = By.xpath("//button[text()='Click Me']");
 
-    public ButtonPage(WebDriver webDriver) {
-    }
-
-    public By getDoubleClick() {
-        return doubleClick;
+    public ButtonPage(WebDriver driver) {
+        this.actions = new Actions(driver);
+        this.driver = driver;
     }
 
     public void doubleClick(){
-        actions.doubleClick();
-        
+        WebElement button = driver.findElement(doubleClick);
+        actions.doubleClick(button).perform();
+    }
+
+    public void rightClick(){
+        WebElement button = driver.findElement(rightClick);
+        actions.contextClick(button).perform();
+    }
+
+    public void dinamickClick(){
+        WebElement element = driver.findElement(dynamicClick);
+        actions.moveToElement(element)
+                .click()
+                .perform();
     }
 }
+
