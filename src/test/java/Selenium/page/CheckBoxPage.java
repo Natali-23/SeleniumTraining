@@ -1,5 +1,7 @@
 package Selenium.page;
 
+import io.qameta.allure.Step;
+import jdk.jfr.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -29,7 +31,7 @@ public class CheckBoxPage {
                         "//span[contains(@class,'rc-tree-checkbox')]"
         );
     }
-
+@Step("открываем дерево и кликаем на него")
     public void openHome() {
         driver.findElement(switcher("Home")).click();
     }
